@@ -104,7 +104,6 @@ elif btn_total:
     * **Estimated Allowances & Other Pay:** ${other_allowances:,.2f}
     """)
 
-%%writefile app.py
 import streamlit as st
 import pandas as pd
 import numpy as np
