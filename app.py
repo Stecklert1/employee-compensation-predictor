@@ -212,4 +212,4 @@ elif btn_total:
     """)
 
 elif btn_reset:
-    st.rerun()
+    st.experimental_rerun()
