@@ -150,3 +150,15 @@ elif btn_role:
 
 elif btn_reset:
     st.rerun()
+
+
+import pickle
+
+# Extract the trained model from the existing classification artifacts
+model_to_save = classification_artifacts['model']
+
+# Save the model as job_predictor_model.pkl in the workspace
+with open('job_predictor_model.pkl', 'wb') as f:
+    pickle.dump(model_to_save, f)
+
+print("Trained classification model has been successfully saved to 'job_predictor_model.pkl'!")
