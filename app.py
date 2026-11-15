@@ -1,3 +1,4 @@
+%%writefile app.py
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -19,25 +20,25 @@ with st.form("prediction_form"):
         "Police", "Fire", "Houston Public Works", "Houston Airport System",
         "Health & Human Services", "Parks & Recreation", "Human Resources",
         "Library", "Admin. & Regulatory Affairs", "Solid Waste Management", "Other"
-    ], key="dept_select")
+    ])
 
     pay_grade = st.selectbox("Simplified Pay Grade", [
         "Grade_3", "Grade_4", "Grade_6", "Grade_10", "Grade_13",
         "Grade_16", "Grade_17", "Grade_18", "Grade_20", "Grade_22", "Grade_26", "Other"
-    ], key="pay_grade_select")
+    ])
 
-    flsa_status = st.selectbox("FLSA Status", ["Exempt", "Non-Exempt"], key="flsa_select")
+    flsa_status = st.selectbox("FLSA Status", ["Exempt", "Non-Exempt"])
 
-    years_experience = st.slider("Years Since Position Began (Experience)", min_value=0, max_value=40, value=5, key="exp_slider")
+    years_experience = st.slider("Years Since Position Began (Experience)", min_value=0, max_value=40, value=5)
 
     st.markdown("### Actions")
     col1, col2, col3 = st.columns(3)
     with col1:
-        btn_base = st.form_submit_button("Predict Base Salary Only", key="btn_predict_base")
+        btn_base = st.form_submit_button("Predict Base Salary Only")
     with col2:
-        btn_total = st.form_submit_button("Predict Total Compensation", key="btn_predict_total")
+        btn_total = st.form_submit_button("Predict Total Compensation")
     with col3:
-        btn_reset = st.form_submit_button("Reset Fields", key="btn_reset_fields")
+        btn_reset = st.form_submit_button("Reset Fields")
 
 # --- Prediction Calculations ---
 # Base coefficients aligned with OLS findings
